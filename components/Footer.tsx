@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { FaChevronDown, FaEnvelope, FaWhatsapp, FaFacebookF, FaTiktok, FaInstagram } from 'react-icons/fa';
+import { FaChevronDown, FaEnvelope, FaWhatsapp, FaFacebookF, FaTiktok, FaInstagram, FaLinkedin, FaTwitter  } from 'react-icons/fa';
 
 const Footer = () => {
   const [showPolicies, setShowPolicies] = useState(false);
@@ -81,10 +81,16 @@ const Footer = () => {
         {/* Social Icons Above Footer Text */}
         <div className="max-w-7xl mx-auto flex justify-center gap-5 text-lg mt-10">
           <a href="mailto:example@example.com"><FaEnvelope className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://wa.me/9613460293"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://www.facebook.com/people/Forensix-Events/61553580276959/"><FaFacebookF className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://www.tiktok.com/@Forensixevents"><FaTiktok className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://www.instagram.com/Forensixevents"><FaInstagram className="text-[#fff] cursor-pointer" /></a>
+          <a href="https://wa.me/96170926232"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
+          <a href="https://www.facebook.com/share/1BLW1M5wW8/"><FaFacebookF className="text-[#fff] cursor-pointer" /></a>
+
+          <a href="https://www.linkedin.com/company/forensixai/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="text-[#fff] cursor-pointer" />
+          </a>
+   <a href="https://x.com/ForensixAi?t=JR2uAHSwoXLnTs21vsZRMw&s=08" target="_blank" rel="noopener noreferrer">
+    <FaTwitter className="text-[#fff] cursor-pointer" />
+  </a>
+          <a href="https://www.instagram.com/forensix.ai/"><FaInstagram className="text-[#fff] cursor-pointer" /></a>
         </div>
 
         {/* Bottom */}
@@ -170,10 +176,16 @@ const Footer = () => {
         {/* Social Icons Above Footer Text */}
         <div className="flex flex-wrap justify-center gap-5 text-lg mt-10">
           <a href="mailto:example@example.com"><FaEnvelope className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://wa.me/9613460293"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://www.facebook.com/people/Forensix-Events/61553580276959/"><FaFacebookF className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://www.tiktok.com/@Forensixevents"><FaTiktok className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://www.instagram.com/Forensixevents"><FaInstagram className="text-[#fff] cursor-pointer" /></a>
+          <a href="https://wa.me/96170926232"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
+          <a href="https://www.facebook.com/share/1BLW1M5wW8/"><FaFacebookF className="text-[#fff] cursor-pointer" /></a>
+          <a href="https://www.linkedin.com/company/forensixai/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="text-[#fff] cursor-pointer" />
+          </a>
+            <a href="https://x.com/ForensixAi?t=JR2uAHSwoXLnTs21vsZRMw&s=08" target="_blank" rel="noopener noreferrer">
+    <FaTwitter className="text-[#fff] cursor-pointer" />
+  </a>
+ 
+          <a href="https://www.instagram.com/forensix.ai/"><FaInstagram className="text-[#fff] cursor-pointer" /></a>
         </div>
 
         {/* Bottom */}

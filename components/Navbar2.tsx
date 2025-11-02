@@ -74,25 +74,24 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* ✅ MOBILE NAV */}
-        <div className="flex md:hidden justify-between items-center w-full myMobnav">
-          <Link href="/">
-            <img
-              src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762023367/897bba68-1092-4b61-bca9-a5bf4dea9633-removebg-preview_1_aqlphi.png"
-              alt="Logo"
-              width={120}
-              height={50}
-              className="object-contain"
-            />
-          </Link>
+        {/* ✅ MOBILE NAV */} 
+<div className="flex md:hidden justify-between items-center w-full myMobnav">
+  <Link href="/">
+    <img
+      src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762023367/897bba68-1092-4b61-bca9-a5bf4dea9633-removebg-preview_1_aqlphi.png"
+      alt="Logo"
+      className="object-contain w-48 h-28 sm:w-56 sm:h-32 transition-all duration-300"
+    />
+  </Link>
 
-          <button
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="text-3xl focus:outline-none z-50"
-          >
-            {menuOpen ? <HiX className="text-white" /> : <FaBars className="text-white" />}
-          </button>
-        </div>
+  <button
+    onClick={() => setMenuOpen((prev) => !prev)}
+    className="text-3xl focus:outline-none z-50"
+  >
+    {menuOpen ? <HiX className="text-white" /> : <FaBars className="text-white" />}
+  </button>
+</div>
+
       </div>
 
       {/* ✅ MOBILE OVERLAY MENU */}
