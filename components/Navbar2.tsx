@@ -1,0 +1,129 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { FaBars } from "react-icons/fa6";
+import { HiX } from "react-icons/hi";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // ✅ Added Blogs & Login
+  const navItems = ['Home', 'About', 'Services', 'Contact', 'Blogs'];
+
+  const getHref = (item) => (item === 'Home' ? '/' : `/${item.toLowerCase()}`);
+
+  return (
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? `bg-[#0b2556] shadow-md ${isHome ? 'pt-[5em]' : 'pt-[1em]'}` 
+          : `bg-gradient-to-b from-black/70 to-transparent ${isHome ? 'pt-[7em]' : 'pt-[3em]'}`}`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-28 flex items-center justify-between">
+
+        {/* ✅ PC NAV */}
+        <div className="hidden md:flex w-full items-center justify-between">
+
+          {/* ✅ LOGO LEFT */}
+          <Link href="/">
+            <img
+              src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762023367/897bba68-1092-4b61-bca9-a5bf4dea9633-removebg-preview_1_aqlphi.png"
+              alt="Logo"
+              width={scrolled ? 130 : 160}
+              height={scrolled ? 90 : 75}
+              className="object-contain transition-all duration-300"
+            />
+          </Link>
+
+          {/* ✅ NAV LIST (Right) */}
+          <ul className="flex space-x-10 items-center">
+            {navItems.map((item) => (
+              <li key={item}>
+                <Link
+                  href={getHref(item)}
+                  className={`mynavhov font-bold text-lg transition-colors ${
+                    scrolled ? 'text-white' : 'text-white'
+                  }  `}
+                >
+                  {item}
+                </Link>
+              </li>
+            ))}
+
+            {/* ✅ LOGIN BUTTON */}
+            <li>
+              <Link
+                href="/login"
+                className="  mylog"
+                
+              >
+                Login
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* ✅ MOBILE NAV */}
+        <div className="flex md:hidden justify-between items-center w-full myMobnav">
+          <Link href="/">
+            <img
+              src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762023367/897bba68-1092-4b61-bca9-a5bf4dea9633-removebg-preview_1_aqlphi.png"
+              alt="Logo"
+              width={120}
+              height={50}
+              className="object-contain"
+            />
+          </Link>
+
+          <button
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="text-3xl focus:outline-none z-50"
+          >
+            {menuOpen ? <HiX className="text-white" /> : <FaBars className="text-white" />}
+          </button>
+        </div>
+      </div>
+
+      {/* ✅ MOBILE OVERLAY MENU */}
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center transition-all duration-300 ${
+          menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+        }`}
+      >
+        {navItems.map((item) => (
+          <Link
+            key={item}
+            href={getHref(item)}
+            onClick={() => setMenuOpen(false)}
+            className=" text-xl text-gray-800 font-semibold mb-6 hover:text-blue-600"
+          >
+            {item}
+          </Link>
+        ))}
+
+        {/* ✅ LOGIN button mobile */}
+        <Link
+          href="/login"
+          onClick={() => setMenuOpen(false)}
+          className=" text-xl font-semibold px-6 py-3 rounded-lg mt-6"
+          style={{ backgroundColor: "#2c9fd5", color: "white" }}
+        >
+          Login
+        </Link>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
