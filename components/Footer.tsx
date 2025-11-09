@@ -61,9 +61,12 @@ const Footer = () => {
                         href={`/service?id=${item.id}`}
                         className="colorp capitalize"
                       >
-                        {item.title
-                          ?.toLowerCase()
-                          .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase())}
+{item.title
+  ?.toLowerCase()
+  .split(' ')
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ')}
+
                       </a>
 
                     </li>
@@ -148,9 +151,12 @@ const Footer = () => {
                           href={`/service?id=${item.id}`}
                           className="colorp capitalize"
                         >
-                          {item.title
-                            ?.toLowerCase()
-                            .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase())}
+{item.title
+  ?.toLowerCase()
+  .split(' ')
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ')}
+
                         </a>
 
                       </li>

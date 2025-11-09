@@ -5,12 +5,20 @@ import { FaBars } from "react-icons/fa6";
 import { HiX } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+    const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Get user from localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) setUser(JSON.parse(storedUser));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -21,7 +29,11 @@ const Navbar = () => {
   // ✅ Added Blogs & Login
   const navItems = ['Home', 'About', 'Services', 'Contact', 'Blogs'];
 
-  const getHref = (item) => (item === 'Home' ? '/' : `/${item.toLowerCase()}`);
+const getHref = (item) => {
+  if (item === "Home") return "/";
+  if (item === "Services") return "/#myservscroll"; // ✅ scroll to section on homepage
+  return `/${item.toLowerCase()}`;
+};
 
   return (
     <nav
@@ -63,13 +75,22 @@ const Navbar = () => {
 
             {/* ✅ LOGIN BUTTON */}
             <li>
-              <Link
-                href="/login"
-                className="  mylog"
-                
-              >
-                Login
-              </Link>
+  {user ? (
+        <Link
+          href="/profile"
+          className="text-xl px-4 py-2 flex items-center text-white"
+        >
+          <FaUserCircle size={24} className="mr-2 " /> {user.name}
+        </Link>
+      ) : (
+        <Link
+          href="/login"
+          className="text-xl font-semibold px-6 py-3 rounded-lg mt-6"
+          style={{ backgroundColor: "#2c9fd5", color: "white" }}
+        >
+          Login
+        </Link>
+      )}
             </li>
           </ul>
         </div>
@@ -111,15 +132,22 @@ const Navbar = () => {
           </Link>
         ))}
 
-        {/* ✅ LOGIN button mobile */}
+  {user ? (
+        <Link
+          href="/profile"
+          className="text-xl px-4 py-2 flex items-center"
+        >
+          <FaUserCircle size={24} className="mr-2" /> {user.name}
+        </Link>
+      ) : (
         <Link
           href="/login"
-          onClick={() => setMenuOpen(false)}
-          className=" text-xl font-semibold px-6 py-3 rounded-lg mt-6"
+          className="text-xl font-semibold px-6 py-3 rounded-lg mt-6"
           style={{ backgroundColor: "#2c9fd5", color: "white" }}
         >
           Login
         </Link>
+      )}
       </div>
     </nav>
   );

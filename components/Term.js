@@ -56,7 +56,7 @@ const TermsAndConditions = () => {
         If you have questions about these Terms, please contact us at:  
         <strong>Email:</strong> support@Forensix.com  
         <br />
-        <strong>Phone:</strong> +961 70 000 000  
+        <strong>Phone:</strong> +96170926232  
       </p>
     </div>
   );

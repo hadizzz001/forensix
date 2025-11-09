@@ -2,7 +2,7 @@
 
 export default function HeroImage() {
   const img =
-    'https://res.cloudinary.com/duln5xyix/image/upload/v1760987013/shine-wedding-altar-newlyweds-stands-backyard-decorated-with-balloons_or7way.webp';
+    'https://res.cloudinary.com/dn23oe6gg/image/upload/v1762098937/6729c105bce0b1362a7da126_fintech-bg-p-1600_y2a2lq.webp';
 
   return (
     <div className="relative w-full h-[600px] md:h-[700px] lg:h-[800px]">

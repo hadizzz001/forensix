@@ -11,7 +11,7 @@ export default function OurStory() {
 
   const fetchProject = async () => {
     try {
-      const res = await fetch(`https://Forensix-dash.netlify.app/api/project/${search}`); 
+      const res = await fetch(`https://forensix-dash.netlify.app/api/project/${search}`); 
 
       const data = await res.json();
       setProject(data);
@@ -28,22 +28,20 @@ export default function OurStory() {
     <>
       {/* Hero Section — video or fallback image with button */}
       <div className="relative w-full h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden">
-        {project?.video && project.video.length > 0 ? (
-          <video
-            src={project.video[0]}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          ></video>
-        ) : (
-          <img
-            src="https://res.cloudinary.com/duln5xyix/image/upload/v1760987013/shine-wedding-altar-newlyweds-stands-backyard-decorated-with-balloons_or7way.webp"
-            alt="Hero"
-            className="w-full h-full object-cover"
-          />
-        )}
+{project?.img && project.img.length > 0 ? (
+  <img
+    src={project.img[0]}
+    alt={project?.title || "Hero"}
+    className="w-full h-full object-cover"
+  />
+) : (
+  <img
+    src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762098937/6729c105bce0b1362a7da126_fintech-bg-p-1600_y2a2lq.webp"
+    alt="Hero fallback"
+    className="w-full h-full object-cover"
+  />
+)}
+
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
@@ -55,7 +53,7 @@ export default function OurStory() {
             uppercase transition-colors duration-200 hover:bg-white hover:text-black"
 onClick={() => {
   const encodedTitle = encodeURIComponent(project?.title);
-  window.location.href = `/contact?select=${encodedTitle}`;
+  window.location.href = `/contact`;
 }}
 
         >
@@ -77,15 +75,13 @@ onClick={() => {
       {/* Content Section */}
       <section className="w-full max-w-7xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
-          <h1 className={`${myFont.className} myparhal2 mb-10`}>
+          <h1 className={`mttit1232 mb-10`}>
             {project?.title
               ? project.title.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
               : 'Loading...'}
           </h1>
 
-          <p
-            className="myGray mb-10"
-            style={{ fontSize: '16px', lineHeight: '1.6', textAlign: 'justify' }}
+ <p style={{ fontSize: "16px", lineHeight: "1.6", color: "#555", marginBottom: "20px" }} 
             dangerouslySetInnerHTML={{
               __html: project?.description || `Loading...`,
             }}
@@ -108,20 +104,7 @@ onClick={() => {
               </div>
             ))}
 
-            {/* Other Videos (if more than one) */}
-            {project.video?.length > 1 &&
-              project.video.slice(1).map((videoUrl, index) => (
-                <div
-                  key={`video-${index}`}
-                  className="relative w-full aspect-video overflow-hidden rounded-lg"
-                >
-                  <video
-                    src={videoUrl}
-                    controls
-                    className="w-full h-full object-cover"
-                  ></video>
-                </div>
-              ))}
+        
           </div>
         ) : (
           <p className="text-center text-gray-500">Loading project...</p>

@@ -1,13 +1,13 @@
 // "use client";  
-import { useState, useEffect } from "react";   
-import Carousel from './Carousel';  
-import About from './About';    
-import Service from './Service';    
-import Blog from './Blog';    
-import Carousel1 from './Carousel1';    
-import How from './How';    
-import Book from './Book';    
-import Why from './Why';    
+import { useState, useEffect } from "react";
+import Carousel from './Carousel';
+import About from './About';
+import Service from './Service';
+import Blog from './Blog';
+import Carousel1 from './Carousel1';
+import How from './How';
+import Book from './Book';
+import Why from './Why';
 
 
 const Body = () => {
@@ -28,8 +28,8 @@ const Body = () => {
         <div id="topBannerWrapper" />
 
 
-    
- 
+
+
         <style
           type="text/css"
           dangerouslySetInnerHTML={{
@@ -72,10 +72,10 @@ const Body = () => {
           }}
         />
         <div id="contentWrapper" />
- 
- 
 
- 
+
+
+
 
         <style
           type="text/css"
@@ -106,17 +106,17 @@ const Body = () => {
 
         <div id="usp-scroll-to"></div>
 
-        <Carousel /> 
-         <About /> 
-         <How /> 
-        <Service /> 
-        <Carousel1 />  
-          <Why />   
-        <Blog />  
-        <Book /> 
- 
-  
-          
+        <Carousel />
+        <About />
+        <How />
+        <Service />
+        <Carousel1 />
+        <Why />
+        <Blog />
+        <Book />
+
+
+
 
         <style
           type="text/css"
@@ -128,8 +128,8 @@ const Body = () => {
 
 
 
- 
-          
+
+
 
         <style
           type="text/css"
@@ -139,8 +139,8 @@ const Body = () => {
           }}
         />
         <div className="sywPaymentOptions">
-          
-          
+
+
         </div>
 
 

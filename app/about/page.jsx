@@ -1,6 +1,6 @@
  "use client";  
 import { useState, useEffect } from "react";   
-import Carousel1 from '@/components/Carousel1';   
+import Carousel2 from '@/components/Carousel2';   
 import About1 from '@/components/About1';      
 
 
@@ -100,7 +100,7 @@ const Body = () => {
 
         <div id="usp-scroll-to"></div>
 
-        <Carousel1 />   
+        <Carousel2 />   
         <About1 />  
  
   
