@@ -25,31 +25,42 @@ export default function Profile() {
     window.location.href = "/";
   };
 
-  // ✅ When CV is uploaded → send name, email, PDF URL to /api/work
-  const sendCvToBackend = async (uploadedUrl) => {
-    if (!user) return;
+const sendCvToBackend = async (uploadedUrl) => {
+  if (!user) return;
 
-    const payload = {
-      fullName: user.name,
-      email: user.email,
-      cvUrl: uploadedUrl,
-    };
-
-    try {
-      const res = await fetch("/api/work", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await res.json();
-
-      setStatusMessage(result.message || "Uploaded successfully ✅");
-    } catch (error) {
-      console.error(error);
-      setStatusMessage("Something went wrong ❌");
-    }
+  // ✅ Format current date as "11/Jun/2020"
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, "0");
+    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const month = monthNames[date.getMonth()];
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   };
+
+  const currentDate = formatDate(new Date());
+
+  const payload = {
+    fullName: user.name,
+    email: user.email,
+    cvUrl: uploadedUrl,
+    date: currentDate, // ✅ add the formatted date
+  };
+
+  try {
+    const res = await fetch("/api/work", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const result = await res.json();
+    setStatusMessage(result.message || "Uploaded successfully ✅");
+  } catch (error) {
+    console.error(error);
+    setStatusMessage("Something went wrong ❌");
+  }
+};
+
 
   if (!user) return <p>Loading...</p>;
 
