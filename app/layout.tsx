@@ -41,35 +41,35 @@ export default function RootLayout({
   <title>Forensix</title>
   <meta
     name="description"
-    content="Forensix embarked on his hairstyling journey in 1994, transforming his passion for artistry and precision into a lifelong career."
+    content="Forensix discover how artificial intelligence is transforming the detection and prevention of financial crimes"
   />
 
   {/* Open Graph */}
   <meta property="og:title" content="Forensix" />
   <meta
     property="og:description"
-    content="Forensix embarked on his hairstyling journey in 1994, transforming his passion for artistry and precision into a lifelong career."
+    content="Forensix discover how artificial intelligence is transforming the detection and prevention of financial crimes"
   />
   <meta property="og:url" content="https://rafidaham.com" />
   <meta property="og:site_name" content="Forensix" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2" />
+  <meta property="og:image" content="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg" />
 
   {/* Twitter */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Forensix" />
   <meta
     name="twitter:description"
-    content="Forensix embarked on his hairstyling journey in 1994, transforming his passion for artistry and precision into a lifelong career."
+    content="Forensix discover how artificial intelligence is transforming the detection and prevention of financial crimes"
   />
-  <meta name="twitter:image" content="https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2" />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg" />
 
   {/* Icons */}
-  <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2" />
-  <link rel="icon" sizes="32x32" href="https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2" />
-  <link rel="icon" sizes="16x16" href="https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2" />
-  <link rel="icon" href="https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2" type="image/x-icon" />
-  <link rel="shortcut icon" href="https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg" />
+  <link rel="icon" sizes="32x32" href="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg" />
+  <link rel="icon" sizes="16x16" href="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg" />
+  <link rel="icon" href="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg" type="image/x-icon" />
 
   {/* Fonts & Styles */}
   <link rel="preload" as="style" href="css/webfonts-3e3c2400.css" />
@@ -94,7 +94,7 @@ export default function RootLayout({
         "@type": "Organization",
         name: "Forensix",
         url: "https://rafidaham.com",
-        logo: "https://res.cloudinary.com/dtjcqfoxc/image/upload/v1756638279/icon_bng0gm.png?v=2",
+        logo: "https://res.cloudinary.com/dn23oe6gg/image/upload/v1762694406/897bba68-1092-4b61-bca9-a5bf4dea9633_xgbvgi.jpg",
       }),
     }}
   />
