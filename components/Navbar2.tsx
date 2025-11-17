@@ -28,7 +28,7 @@ const Navbar = () => {
 
   const getHref = (item) => {
     if (item === "Home") return "/";
-    if (item === "Services") return "/#myservscroll";
+    if (item === "Services") return "/services";
     return `/${item.toLowerCase()}`;
   };
 
