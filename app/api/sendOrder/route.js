@@ -14,6 +14,8 @@ export async function POST(request) {
             subject,
             message,
             cat,
+            date,   // <-- selected date from form
+            time,   // <-- selected time from form
         } = body;
 
         const client = await clientPromise; // Connect to MongoDB
@@ -22,21 +24,23 @@ export async function POST(request) {
 
         console.log("Data: ", body);
 
-        // Get current date as string like "1/jul/2020"
+        // Get current date as string like "1/Jul/2020"
         const now = new Date();
         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         const dateString = `${now.getDate()}/${monthNames[now.getMonth()]}/${now.getFullYear()}`;
 
         // Insert the new order into the collection
         const result = await collection.insertOne({
-            name: name,
-            email: email,
-            phone: phone,
-            location: location,
-            subject: subject,
-            message: message,
-            cat: cat,
-            date: dateString, // <-- added date here
+            name,
+            email,
+            phone,
+            location,
+            subject,
+            message,
+            cat,
+            bookedAt: dateString, // current submission date
+            date: date,   // selected appointment date
+            time: time,   // selected appointment time
         });
 
         return NextResponse.json({ success: true, insertedId: result.insertedId }); // Return success response

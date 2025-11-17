@@ -74,7 +74,7 @@ onClick={() => {
 
       {/* Content Section */}
       <section className="w-full max-w-7xl mx-auto px-6 py-12">
-        <div className="text-center mb-12">
+        <div className="  mb-12">
           <h1 className={`mttit1232 mb-10`}>
             {project?.title
               ? project.title.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())

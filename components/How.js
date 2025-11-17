@@ -1,32 +1,41 @@
 'use client';
-import { Cpu, Search, FileCheck } from 'lucide-react';
-
-const steps = [
-  {
-    number: '01',
-    title: 'Upload / Connect Data',
-    desc: 'Securely upload financial documents, bank statements, or transaction data.',
-    icon: <Cpu className="w-12 h-12 md:w-16 md:h-16 text-[#2c9fd5]" />,
-  },
-  {
-    number: '02',
-    title: 'AI Investigation',
-    desc: 'Our system analyzes patterns, detects anomalies, and flags suspicious activities.',
-    icon: <Search className="w-12 h-12 md:w-16 md:h-16 text-[#2c9fd5]" />,
-  },
-  {
-    number: '03',
-    title: 'Receive Final Report',
-    desc: 'Download a full report with insights, evidence, and recommended actions.',
-    icon: <FileCheck className="w-12 h-12 md:w-16 md:h-16 text-[#2c9fd5]" />,
-  },
-];
+import { useState, useEffect } from 'react';
 
 export default function HowItWorks() {
+  const [steps, setSteps] = useState([]);
+  const [section, setSection] = useState({ title: '', description: '' });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSteps = async () => {
+      try {
+        const res = await fetch('/api/hwork');
+        const data = await res.json();
+        if (data.length > 0) {
+          setSection({
+            title: data[0].title,
+            description: data[0].description,
+          });
+          setSteps(data[0].data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch steps:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSteps();
+  }, []);
+
+  if (loading) {
+    return <p className="text-center py-20">Loading...</p>;
+  }
+
   return (
-    <div className="flex flex-col items-center my-20 gap-10  py-16">
+    <div className="flex flex-col items-center my-20 gap-10 py-16">
       <div className="max-w-[900px] text-center">
-        <h1 className="mb-6 mttit1232">How it works</h1>
+        <h1 className="mb-6 mttit1232">{section.title}</h1>
         <p
           style={{
             fontSize: '16px',
@@ -35,7 +44,7 @@ export default function HowItWorks() {
             marginBottom: '20px',
           }}
         >
-          Our AI-powered platform makes financial crime investigation faster, smarter, and more accurate—from data upload to actionable reports.
+          {section.description}
         </p>
       </div>
 
@@ -43,18 +52,19 @@ export default function HowItWorks() {
         {steps.map((step, index) => (
           <div
             key={index}
-            className="bg-white w-[280px] md:w-[300px] p-8  flex flex-col items-center text-center"
+            className="bg-white w-[280px] md:w-[300px] p-8 flex flex-col items-center text-center"
           >
             <div className="flex items-center justify-center rounded-full w-24 h-24 mb-6 bg-[#e8eff3] shadow-md relative">
-              {step.icon}
-
+              <img
+                src={step.img[0]}
+                alt={step.title}
+                className="w-12 h-12 md:w-16 md:h-16"
+              />
               <span className="absolute -top-3 -right-3 bg-[#2c9fd5] text-white rounded-full text-sm font-semibold py-1 px-2 shadow-lg">
-                {step.number}
+                {`0${index + 1}`}
               </span>
             </div>
-
             <h3 className="mttit12322 mb-3">{step.title}</h3>
-            <p className="text-gray-600 text-sm">{step.desc}</p>
           </div>
         ))}
       </div>
