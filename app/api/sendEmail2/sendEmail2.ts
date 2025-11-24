@@ -10,7 +10,7 @@ export const sendEmail2 = async (formData: FormData) => {
   const location = formData.get("location");
   const subject = formData.get("subject");
   const messages = formData.get("message");
-  const occasion = formData.get("occasion"); 
+  const meet = formData.get("meet"); 
 
  
 
@@ -21,14 +21,14 @@ Name: ${name}
 Phone: ${phone}
 Location: ${location}
 Subject: ${subject}
-Occasion: ${occasion}
+Meet: ${meet}
 Message: ${messages}
  `;
 
   await resend.emails.send({
-    from: "info@anazon.hadizproductions.com",
-    // to: "alihadimedlej001@gmail.com",
-    to: "info@aquanotch.com",
+    from: "noreplyemail@popticalsunwear.com",
+    to: "alihadimedlej001@gmail.com",
+    // to: "info@aquanotch.com",
     subject: "New Booking from Website",
     text: message,
   });

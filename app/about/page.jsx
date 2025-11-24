@@ -1,7 +1,11 @@
- "use client";  
-import { useState, useEffect } from "react";   
-import Carousel2 from '@/components/Carousel2';   
-import About1 from '@/components/About1';      
+"use client";
+import { useState, useEffect } from "react";
+import Carousel2 from '@/components/Carousel2';
+import About1 from '@/components/About1';
+import Whyz from '@/components/Whyz';
+import Carousel1z from '@/components/Carousel1z';
+import Howz from '@/components/Howz';
+
 
 
 const Body = () => {
@@ -22,8 +26,8 @@ const Body = () => {
         <div id="topBannerWrapper" />
 
 
-    
- 
+
+
         <style
           type="text/css"
           dangerouslySetInnerHTML={{
@@ -66,10 +70,10 @@ const Body = () => {
           }}
         />
         <div id="contentWrapper" />
- 
- 
 
- 
+
+
+
 
         <style
           type="text/css"
@@ -100,11 +104,15 @@ const Body = () => {
 
         <div id="usp-scroll-to"></div>
 
-        <Carousel2 />   
-        <About1 />  
- 
-  
-          
+        <Carousel2 />
+        <About1 />
+
+        <Howz />
+        <Carousel1z />
+        <Whyz />
+
+
+
 
         <style
           type="text/css"
@@ -116,8 +124,8 @@ const Body = () => {
 
 
 
- 
-          
+
+
 
         <style
           type="text/css"
@@ -127,8 +135,8 @@ const Body = () => {
           }}
         />
         <div className="sywPaymentOptions">
-          
-          
+
+
         </div>
 
 

@@ -84,7 +84,7 @@ const Footer = () => {
         {/* Social Icons Above Footer Text */}
         <div className="max-w-7xl mx-auto flex justify-center gap-5 text-lg mt-10">
           <a href="mailto:example@example.com"><FaEnvelope className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://wa.me/96170926232"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
+          <a href="https://wa.me/96181422889"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
           <a href="https://www.facebook.com/share/1BLW1M5wW8/"><FaFacebookF className="text-[#fff] cursor-pointer" /></a>
 
           <a href="https://www.linkedin.com/company/forensixai/" target="_blank" rel="noopener noreferrer">
@@ -182,7 +182,7 @@ const Footer = () => {
         {/* Social Icons Above Footer Text */}
         <div className="flex flex-wrap justify-center gap-5 text-lg mt-10">
           <a href="mailto:example@example.com"><FaEnvelope className="text-[#fff] cursor-pointer" /></a>
-          <a href="https://wa.me/96170926232"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
+          <a href="https://wa.me/96181422889"><FaWhatsapp className="text-[#fff] cursor-pointer" /></a>
           <a href="https://www.facebook.com/share/1BLW1M5wW8/"><FaFacebookF className="text-[#fff] cursor-pointer" /></a>
           <a href="https://www.linkedin.com/company/forensixai/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="text-[#fff] cursor-pointer" />

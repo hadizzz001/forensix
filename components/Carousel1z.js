@@ -10,27 +10,25 @@ export default function HeroImage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('/api/look');
+        const res = await fetch('/api/look1');
         const data = await res.json();
 
         if (data && data.length > 0) {
           const item = data[0];
 
-          if (item.img && item.img.length > 0) {
-            setImg(item.img[0]);
-          }
+          if (item.img?.length > 0) setImg(item.img[0]);
           if (item.title) setTitle(item.title);
           if (item.description) setDesc(item.description);
         }
       } catch (error) {
-        console.error('Failed to fetch hero data:', error);
+        console.error('Failed to fetch hero info:', error);
       }
     };
 
     fetchData();
   }, []);
 
-  // Skeleton loader
+  // Loading state
   if (!img) {
     return (
       <div className="relative w-full h-[300px] bg-gray-300 animate-pulse" />
@@ -52,11 +50,10 @@ export default function HeroImage() {
       {/* Centered Content */}
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
         <h1 className="mttit123 mb-2 uppercase">
-          {title || "Loading..."}
+          {title  }
         </h1>
-
         <p className="mttit1231 mb-3">
-          {desc || "Loading description..."}
+          {desc  }
         </p>
 
         <button

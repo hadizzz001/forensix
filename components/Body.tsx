@@ -108,7 +108,7 @@ const Body = () => {
 
         <Carousel />
         <About />
-        <How />
+        {/* <How /> */}
         <Service />
         <Carousel1 />
         <Why />

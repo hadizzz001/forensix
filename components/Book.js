@@ -58,7 +58,7 @@ Date: ${selectedDate}
 Time: ${selectedHour}
     `;
     const encoded = encodeURIComponent(msg);
-    return `https://wa.me/96170926232?text=${encoded}`;
+    return `https://wa.me/96181422889?text=${encoded}`;
   };
 
   const handleSubmit = async (e) => {
@@ -73,19 +73,39 @@ Time: ${selectedHour}
     const whatsappUrl = createWhatsAppURL(formData);
     window.open(whatsappUrl, '_blank');
 
+ 
+ 
+const meetLink = "https://us05web.zoom.us/j/8985808054?pwd=aAGGVitVIh8k0kE2z4noqMJfxoa2Pr.1";
+
+
+
+
+
+
+
+
+
     try {
       const orderRes = await fetch('/api/sendOrder', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, date: selectedDate, time: selectedHour }),
+        body: JSON.stringify({ ...formData, date: selectedDate, time: selectedHour, meet: meetLink }),
       });
       if (!orderRes.ok) throw new Error('Failed to create order.');
 
-      const emailRes = await fetch('/api/sendEmail3', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, date: selectedDate, time: selectedHour }),
-      });
+const emailRes = await fetch('/api/sendEmail3', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    inputs: {
+      ...formData,
+      date: selectedDate,
+      time: selectedHour,
+      meet: meetLink
+    }
+  }),
+});
+
       if (!emailRes.ok) throw new Error('Failed to send email.');
 
       alert('Your request has been sent successfully!');
@@ -99,12 +119,27 @@ Time: ${selectedHour}
       });
       setSelectedDate('');
       setSelectedHour('');
+ 
+
     } catch (err) {
       console.error(err);
       alert(err.message || 'Something went wrong.');
     } finally {
       setLoading(false);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
   // Helper to get hours for selected date

@@ -16,6 +16,7 @@ export async function POST(request) {
             cat,
             date,   // <-- selected date from form
             time,   // <-- selected time from form
+            meet
         } = body;
 
         const client = await clientPromise; // Connect to MongoDB
@@ -41,6 +42,7 @@ export async function POST(request) {
             bookedAt: dateString, // current submission date
             date: date,   // selected appointment date
             time: time,   // selected appointment time
+            meet
         });
 
         return NextResponse.json({ success: true, insertedId: result.insertedId }); // Return success response

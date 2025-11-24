@@ -65,16 +65,22 @@ export default function Home() {
         }}
       >
         <h1 className="mb-6 mttit1232">{aboutData.title}</h1>
-        <p
-          style={{
-            fontSize: "16px",
-            lineHeight: "1.6",
-            color: "#555",
-            marginBottom: "20px",
-          }}
-        >
-          {aboutData.description}
-        </p>
+<p
+  style={{
+    fontSize: "16px",
+    lineHeight: "1.6",
+    color: "#555",
+    marginBottom: "20px",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  }}
+>
+  {aboutData.description}
+</p>
+
 
         <Link href="/about">
           <button
