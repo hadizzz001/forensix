@@ -41,7 +41,6 @@ const NewsTicker = () => {
                 alignItems: 'center',
                 marginRight: isLast ? '70px' : '70px',
               }}
-              onClick={() => router.push(`/search?brnd=${encodeURIComponent(item.name)}`)}
             >
               <img
                 src={item.img[0]}

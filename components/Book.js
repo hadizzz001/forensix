@@ -73,9 +73,9 @@ Time: ${selectedHour}
     const whatsappUrl = createWhatsAppURL(formData);
     window.open(whatsappUrl, '_blank');
 
- 
- 
-const meetLink = "https://us05web.zoom.us/j/8985808054?pwd=aAGGVitVIh8k0kE2z4noqMJfxoa2Pr.1";
+
+
+    const meetLink = "https://us05web.zoom.us/j/8985808054?pwd=aAGGVitVIh8k0kE2z4noqMJfxoa2Pr.1";
 
 
 
@@ -93,18 +93,18 @@ const meetLink = "https://us05web.zoom.us/j/8985808054?pwd=aAGGVitVIh8k0kE2z4noq
       });
       if (!orderRes.ok) throw new Error('Failed to create order.');
 
-const emailRes = await fetch('/api/sendEmail3', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    inputs: {
-      ...formData,
-      date: selectedDate,
-      time: selectedHour,
-      meet: meetLink
-    }
-  }),
-});
+      const emailRes = await fetch('/api/sendEmail3', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          inputs: {
+            ...formData,
+            date: selectedDate,
+            time: selectedHour,
+            meet: meetLink
+          }
+        }),
+      });
 
       if (!emailRes.ok) throw new Error('Failed to send email.');
 
@@ -119,7 +119,7 @@ const emailRes = await fetch('/api/sendEmail3', {
       });
       setSelectedDate('');
       setSelectedHour('');
- 
+
 
     } catch (err) {
       console.error(err);

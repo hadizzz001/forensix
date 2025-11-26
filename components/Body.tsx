@@ -8,6 +8,8 @@ import Carousel1 from './Carousel1';
 import How from './How';
 import Book from './Book';
 import Why from './Why';
+import Team from './Team';
+import BrandCarousel from './BrandCarousel';
 
 
 const Body = () => {
@@ -108,10 +110,14 @@ const Body = () => {
 
         <Carousel />
         <About />
+        
         {/* <How /> */}
         <Service />
         <Carousel1 />
         <Why />
+        <Team />
+        <BrandCarousel />
+
         <Blog />
         <Book />
 

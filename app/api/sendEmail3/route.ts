@@ -13,7 +13,8 @@ export async function POST(req: NextRequest) {
     formData.set("location", data.inputs.location);
     formData.set("subject", data.inputs.subject);
     formData.set("message", data.inputs.message);
-    formData.set("occasion", data.inputs.occasion); 
+    formData.set("date", data.inputs.date); 
+    formData.set("time", data.inputs.time); 
     formData.set("meet", data.inputs.meet); 
 
     await sendEmail2(formData);
