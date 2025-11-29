@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 
@@ -16,20 +16,18 @@ const Upload = ({ onFileUpload }) => {
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
 
-      if (file.type !== "application/pdf") {
-        alert(`"${file.name}" is not a PDF. Only PDF files are allowed.`);
-        continue;
-      }
-
       const formData = new FormData();
       formData.append("file", file);
       formData.append("upload_preset", "ml_default"); // Replace with your preset
 
       try {
-        const res = await fetch("https://api.cloudinary.com/v1_1/dn23oe6gg/auto/upload", {
-          method: "POST",
-          body: formData,
-        });
+        const res = await fetch(
+          "https://api.cloudinary.com/v1_1/dn23oe6gg/raw/upload", // Use raw/upload for all file types
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         if (!res.ok) {
           console.error(`Upload failed for ${file.name}`);
@@ -50,19 +48,24 @@ const Upload = ({ onFileUpload }) => {
 
   return (
     <div className="mb-4">
-      <label className="block mb-1 font-bold">Upload PDF (CV)</label>
+      <label className="block mb-1 font-bold">Upload Files</label>
       <input
         type="file"
-        accept="application/pdf"
         onChange={handleFilesChange}
         className="border p-2 w-full"
+        multiple // allow multiple files
       />
       {loading && <p>Uploading...</p>}
       <div className="mt-2 space-y-2">
         {files.map((fileUrl, index) => (
           <div key={index}>
-            <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
-              View CV {index + 1}
+            <a
+              href={fileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline"
+            >
+              View File {index + 1}
             </a>
           </div>
         ))}

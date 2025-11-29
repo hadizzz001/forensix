@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { myFont } from '../app/fonts';
 import { useSearchParams } from 'next/navigation';
 
-export default function OurStory() {
+export default function OurStory() { 
   const [project, setProject] = useState(null);
   const searchParams = useSearchParams();
   const search = searchParams.get('id'); // ?id=BIRTHDAY etc.

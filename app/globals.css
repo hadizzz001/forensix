@@ -1129,13 +1129,7 @@
 }
 
 
-.mySerText {
-  font-size: 16px !important;
-  line-height: 1.2 !important;
-  color: #555 !important;
-  margin-bottom: 20px !important;
-  font-family: 'Arial', sans-serif !important;
-}
+ 
 
 .mySerText  {
   font-size: 16px !important;
@@ -1143,4 +1137,41 @@
   color: #555 !important;
   margin-bottom: 20px !important;
   font-family: 'Arial', sans-serif !important;
+}
+
+.mySerText > h3  { 
+  line-height: 1.1 !important;
+  color: #0b2556 !important;
+  margin-bottom: 20px !important; 
+  font-weight: bold !important;
+}
+.mySerText > h1  { 
+  line-height: 1.1 !important;
+  color: #0b2556 !important;
+  margin-bottom: 20px !important; 
+  font-weight: bold !important;
+}
+.mySerText > h2  { 
+  line-height: 1.1 !important;
+  color: #0b2556 !important;
+  margin-bottom: 20px !important; 
+  font-weight: bold !important;
+}
+.mySerText > h4  { 
+  line-height: 1.1 !important;
+  color: #0b2556 !important;
+  margin-bottom: 20px !important; 
+  font-weight: bold !important;
+}
+.mySerText > h5  { 
+  line-height: 1.1 !important;
+  color: #0b2556 !important;
+  margin-bottom: 20px !important; 
+  font-weight: bold !important;
+}
+.mySerText > h6  { 
+  line-height: 1.1 !important;
+  color: #0b2556 !important;
+  margin-bottom: 20px !important; 
+  font-weight: bold !important;
 }
