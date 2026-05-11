@@ -104,7 +104,7 @@ const Body = () => {
 
         <div id="usp-scroll-to"></div>
 
-        <Carousel2 />
+        <Carousel2 apiEndpoint="/api/aboutbanner" />
         <About1 />
 
         <Howz />

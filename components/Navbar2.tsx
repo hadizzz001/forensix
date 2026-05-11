@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-28 flex items-center justify-between">
 
         {/* PC NAV */}
-        <div className="hidden md:flex w-full items-center justify-between">
+        <div className="hidden md:flex w-full items-center justify-between relative">
           <a href="/">
             <img
               src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762023367/897bba68-1092-4b61-bca9-a5bf4dea9633-removebg-preview_1_aqlphi.png"
@@ -51,7 +51,7 @@ const Navbar = () => {
               className="object-contain transition-all duration-300"
             />
           </a>
-          <ul className="flex space-x-10 items-center">
+          <ul className="absolute left-1/2 -translate-x-1/2 flex space-x-10 items-center">
             {navItems.map((item) => (
               <li key={item}>
                 <a href={getHref(item)} className={`mynavhov font-bold text-lg text-white`}>
@@ -65,7 +65,7 @@ const Navbar = () => {
                   <FaUserCircle size={24} className="mr-2" /> {user.name}
                 </a>
               ) : (
-                <a href="/login" className="text-xl font-semibold px-6 py-3 rounded-lg mt-6"
+                <a href="/login" className="text-xl font-semibold px-6 py-3 rounded-lg"
                    style={{ backgroundColor: "#2c9fd5", color: "white" }}>
                   Login
                 </a>
