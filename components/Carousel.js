@@ -7,6 +7,8 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+const getImageSource = (image) => (Array.isArray(image) ? image[0] : image);
+
 export default function CustomCarousel() {
   const [banners, setBanners] = useState([]);
 
@@ -34,46 +36,54 @@ export default function CustomCarousel() {
         slidesPerView={1}
         className="w-full"
       >
-        {banners.map((item) => (
-          <SwiperSlide key={item._id}>
-            <div className="relative w-full h-[900px] md:h-[800px] lg:h-[800px] overflow-hidden">
-              
-              {/* Background Image */}
-              <img
-                src={item.img?.[0]}
-                alt={item.title}
-                className="w-full h-full object-cover"
-              />
+        {banners.map((item) => {
+          const desktopImg = getImageSource(item.img);
+          const mobileImg = getImageSource(item.mobileImg);
 
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+          return (
+            <SwiperSlide key={item._id}>
+              <div className="relative w-full h-[900px] md:h-[800px] lg:h-[800px] overflow-hidden">
+                
+                {/* Background Image */}
+                <picture className="block w-full h-full">
+                  {mobileImg && <source media="(max-width: 767px)" srcSet={mobileImg} />}
+                  <img
+                    src={desktopImg}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                </picture>
 
-              {/* Text Content */}
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute inset-0 flex items-end pb-32">
-                <div className="z-10 text-left text-white max-w-[600px]">
-                  <h1 className="mttit123 mb-2 uppercase">{item.title}</h1>
-                  <p className="mttit1231 mb-3">{item.description}</p>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-                  <button
-                    className="text-lg md:text-xl bg-transparent text-white px-7 py-3 border border-white uppercase transition-colors duration-200 hover:bg-white hover:text-black"
-                    onClick={() => { window.location.href = '/contact'; }}
-                  >
-                    Book a Call
-                  </button>
+                {/* Text Content */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 absolute inset-0 flex items-end pb-32">
+                  <div className="z-10 text-left text-white max-w-[600px]">
+                    <h1 className="mttit123 mb-2 uppercase">{item.title}</h1>
+                    <p className="mttit1231 mb-3">{item.description}</p>
+
+                    <button
+                      className="text-lg md:text-xl bg-transparent text-white px-7 py-3 border border-white uppercase transition-colors duration-200 hover:bg-white hover:text-black"
+                      onClick={() => { window.location.href = '/contact'; }}
+                    >
+                      Book a Call
+                    </button>
+                  </div>
+                </div>
+
+                {/* Divider SVG */}
+                <div className="absolute bottom-0 left-0 w-screen overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762028092/download_iteir8.svg"
+                    alt="shape divider"
+                    className="w-full stylemob object-cover block"
+                  />
                 </div>
               </div>
-
-              {/* Divider SVG */}
-              <div className="absolute bottom-0 left-0 w-screen overflow-hidden">
-                <img
-                  src="https://res.cloudinary.com/dn23oe6gg/image/upload/v1762028092/download_iteir8.svg"
-                  alt="shape divider"
-                  className="w-full stylemob object-cover block"
-                />
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
