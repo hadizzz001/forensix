@@ -1195,12 +1195,28 @@
   color: #fff !important;
   font-weight: 600 !important;
       letter-spacing: 1px !important;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .mttit1231{
   font-size: 14px !important; 
   color: #fff !important;
   font-weight: 400 !important; 
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+  .mttit123 {
+    font-size: 24px !important;
+    letter-spacing: 0.5px !important;
+  }
+  .mttit1231 {
+    font-size: 13px !important;
+  }
 }
 
 

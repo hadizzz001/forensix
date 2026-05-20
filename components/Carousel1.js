@@ -33,12 +33,12 @@ export default function HeroImage() {
   // Skeleton loader
   if (!img) {
     return (
-      <div className="relative w-full h-[300px] bg-gray-300 animate-pulse" />
+      <div className="relative w-full h-[450px] sm:h-[400px] md:h-[300px] bg-gray-300 animate-pulse" />
     );
   }
 
   return (
-    <div className="relative w-full h-[300px] overflow-hidden">
+    <div className="relative w-full h-[450px] sm:h-[400px] md:h-[300px] overflow-hidden">
       {/* Image */}
       <img
         src={img}
@@ -50,12 +50,12 @@ export default function HeroImage() {
       <div className="absolute inset-0 bg-black bg-opacity-60" />
 
       {/* Centered Content */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
-        <h1 className="mttit123 mb-2 uppercase">
+      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 sm:px-6">
+        <h1 className="mttit123 mb-2 uppercase max-w-full break-words text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
           {title || "Loading..."}
         </h1>
 
-        <p className="mttit1231 mb-3">
+        <p className="mttit1231 mb-3 max-w-full break-words text-sm sm:text-base md:text-lg">
           {desc || "Loading description..."}
         </p>
 
